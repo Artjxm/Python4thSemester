@@ -18,5 +18,6 @@ def f12(x):
         result = 87 * pow(x, 3) - math.sin(x) - 73
         print('%.2e' % result)
 
+
 f12(141)
 f12(16)
