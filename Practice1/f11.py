@@ -8,8 +8,8 @@ def f11(x, y, z):
     dec2 = (pow(x, 4) - math.sin(z)) / \
            pow(y, 6) - pow(x, 7)
     result = dec1 - sub + dec2
-    print('%.2e' % result)
+    return '%.2e' % result
 
 
-f11(15, 59, 39)
-f11(-59, -54, 17)
+print(f11(15, 59, 39))
+print(f11(-59, -54, 17))
