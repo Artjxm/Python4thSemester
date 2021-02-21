@@ -6,5 +6,4 @@ def f11(x, y, z):
            (21 * y ** 5 - 30 * z * z)
     sub = z ** 7 - 53 * y ** 8
     dec2 = (x ** 4 - math.sin(z)) / y ** 6 - x ** 7
-    result = dec1 - sub + dec2
-    return '%.2e' % result
+    return dec1 - sub + dec2

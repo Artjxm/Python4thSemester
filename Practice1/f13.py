@@ -12,5 +12,4 @@ def f13(n, m):
         for j in range(1, m + 1):
             sigma2 += 73 * pow(i, 5) - pow(i, 7)
 
-    result = sigma1 - sigma2
-    return '%.2e' % result
+    return sigma1 - sigma2
