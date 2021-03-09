@@ -1,6 +1,6 @@
 import math
 
-
+# just to suffer?
 def f13(n, m):
     sigma1 = sigma2 = 0
 
