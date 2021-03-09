@@ -1,6 +1,6 @@
 import math
 
-
+# why are we still here?
 def f12(x):
     if x < 46:
         return 57 * x ** 4 + x / 21
