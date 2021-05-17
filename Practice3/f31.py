@@ -17,15 +17,14 @@ def parse_d(offset, byteString):
             'D4': dParsed[3],
             'D5': dParsed[4],
             'D6': dParsed[5],
-            'D7': dParsed[6],
-            'D8': dParsed[7:]}
+            'D7': list(dParsed[6:])}
 
 
 def parse_c(offset, byteString):
     c1234Bytes = byteString[offset:offset + 12]
-    c1234Parsed = struct.unpack('>ibHIb', c1234Bytes)
+    c1234Parsed = struct.unpack('>iBHIb', c1234Bytes)
     c3Bytes = byteString[c1234Parsed[3]:c1234Parsed[3] + c1234Parsed[2] * 2]
-    c3Parsed = struct.unpack('H' * c1234Parsed[2], c3Bytes)
+    c3Parsed = struct.unpack('>' + 'H' * c1234Parsed[2], c3Bytes)
     c5Parsed = parse_d(offset + 12, byteString)
     return {'C1': c1234Parsed[0],
             'C2': c1234Parsed[1],
@@ -40,7 +39,7 @@ def parse_b(offset, byteString):
     b23Parsed = struct.unpack('>ibbbbbbbb', b23Bytes)
     return {'B1': b1Parsed,
             'B2': b23Parsed[0],
-            'B3': b23Parsed[1:]}
+            'B3': list(b23Parsed[1:])}
 
 
 def parse_a(offset, byteString):
@@ -66,7 +65,7 @@ def f31(byteString):
 # b'\xbf\xe9\xdb\xb1\xbf\x81\xb8r\xa4bH\xb6\xd9I7\xc5\xf6\xea\xf0\x00s\x1b\xac>'
 # b'\xe9\xcc\xb9\xbeJ;\x98?*\xb4\xf8?Y\xc5\x95\n\xee\x90KG\xc5\x01\xb2D'
 # b'\x110\xb3\x00\x00\x00\x1b\x00\x00\x00d'))
-
+#
 # pprint.pprint(f31(b'ZFZe\xb5\xb7\\ d\xa5Z\xb1\x00\x00\x00\x02\x00\x00\x00\xb1\xb5\x81\xb5\xca'
 # b'\x18\x10{Y\xed\x16\xd9M\xc7\x0b\xe7\xd1\x00\x05\x00\x00\x00\x15W\xbf'
 # b"6\xb5\x1e?\xd7'\xe6\xe8\x19t\x84\x14\xb7\xf3\xf5\xf1\xa5\x11\x06\xda"
